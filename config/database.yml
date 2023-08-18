@@ -22,11 +22,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   username: postgres
-  password: Chidonkid0011
+  password: gakiib
 
 development:
   <<: *default
   database: blogapp_development
+  url: "postgres://postgres:gakiib@localhost/blogapp_development"
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
