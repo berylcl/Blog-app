@@ -1,9 +1,13 @@
-class CreateComments < ActiveRecord::Migration[7.0]
+class CreatePosts < ActiveRecord::Migration[7.0]
   def change
-    create_table :comments do |t|
-      t.references :author, foreign_key: { to_table: :users }
-      t.integer :post, foreign_key: { to_table: :posts }
+    create_table :posts do |t|
+      t.references :author, null: false, foreign_key: true
+      t.string :title
       t.text :text
+      t.datetime :created_at
+      t.datetime :updated_at
+      t.integer :comments_counter
+      t.integer :likes_counter
 
       t.timestamps
     end
